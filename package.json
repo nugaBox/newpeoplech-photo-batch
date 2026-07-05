@@ -1,0 +1,21 @@
+{
+  "name": "newpeoplech-photo-batch",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Synology Photos 타임라인에서 교회 행사 사진을 날짜별로 다운로드하여 로컬 앨범 폴더에 정리하는 자동화 스크립트",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "scan": "node scripts/scanFolders.js",
+    "login": "node scripts/login.js",
+    "sync": "node scripts/run.js",
+    "sync:dry": "node scripts/run.js --dry-run"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.48.0"
+  }
+}

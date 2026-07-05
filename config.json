@@ -1,0 +1,10 @@
+{
+  "synologyTimelineUrl": "https://cloud.newpeoplech.com/?launchApp=SYNO.Foto.AppInstance#/personal_space/timeline",
+  "downloadFormat": "compressed_jpeg",
+  "rootFolder": ".",
+  "tempDownloadDir": "./downloads",
+  "authProfileDir": "./.auth",
+  "requestDelayMs": 3000,
+  "workListFile": "./work-list.json",
+  "logFile": "./sync-log.json"
+}
