@@ -12,5 +12,46 @@
       "done": 5,
       "pending": 249
     }
+  },
+  {
+    "startedAt": "2026-07-12T04:49:26.683Z",
+    "finishedAt": "2026-07-12T09:51:15.414Z",
+    "beforeCounts": {
+      "skipped": 8,
+      "done": 5,
+      "pending": 249
+    },
+    "afterCounts": {
+      "skipped": 29,
+      "done": 82,
+      "error": 151
+    }
+  },
+  {
+    "startedAt": "2026-07-12T09:53:57.704Z",
+    "finishedAt": "2026-07-12T13:29:35.583Z",
+    "beforeCounts": {
+      "skipped": 29,
+      "done": 82,
+      "pending": 151
+    },
+    "afterCounts": {
+      "skipped": 43,
+      "done": 195,
+      "error": 24
+    }
+  },
+  {
+    "startedAt": "2026-07-12T13:35:21.225Z",
+    "finishedAt": "2026-07-12T13:48:36.719Z",
+    "beforeCounts": {
+      "skipped": 43,
+      "done": 195,
+      "pending": 24
+    },
+    "afterCounts": {
+      "skipped": 43,
+      "done": 219
+    }
   }
 ]
