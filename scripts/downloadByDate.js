@@ -48,7 +48,7 @@ async function processItem(page, item, tempDownloadDir) {
   return { status: 'downloaded', downloadedPath, matchedCount: matched };
 }
 
-async function main() {
+async function main(yearFilter) {
   const projectRoot = path.resolve(__dirname, '..');
   const workListPath = path.resolve(projectRoot, config.workListFile);
   const tempDownloadDir = path.resolve(projectRoot, config.tempDownloadDir);
@@ -56,7 +56,9 @@ async function main() {
   fs.mkdirSync(tempDownloadDir, { recursive: true });
 
   const items = JSON.parse(fs.readFileSync(workListPath, 'utf8'));
-  const pendingItems = items.filter((i) => i.status === 'pending');
+  const pendingItems = items.filter(
+    (i) => i.status === 'pending' && (!yearFilter || i.date.startsWith(yearFilter))
+  );
 
   console.log(`다운로드 대상 ${pendingItems.length}건`);
   if (pendingItems.length === 0) {
@@ -100,7 +102,9 @@ async function main() {
 }
 
 if (require.main === module) {
-  main().catch((err) => {
+  const yearArg = process.argv.find((a) => a.startsWith('--year='));
+  const yearFilter = yearArg ? yearArg.split('=')[1] : undefined;
+  main(yearFilter).catch((err) => {
     console.error('downloadByDate.js 실패:', err);
     process.exit(1);
   });

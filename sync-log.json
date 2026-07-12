@@ -1,0 +1,16 @@
+[
+  {
+    "startedAt": "2026-07-12T04:37:55.369Z",
+    "finishedAt": "2026-07-12T04:38:48.995Z",
+    "beforeCounts": {
+      "skipped": 8,
+      "done": 2,
+      "pending": 252
+    },
+    "afterCounts": {
+      "skipped": 8,
+      "done": 5,
+      "pending": 249
+    }
+  }
+]

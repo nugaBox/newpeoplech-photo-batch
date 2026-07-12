@@ -1,6 +1,7 @@
 // 전체 동기화 파이프라인 통합 실행: (스캔 →) 다운로드 → 압축 해제/이동 → 로그/요약
 // --dry-run: 실제 다운로드 없이 대상 목록만 출력
 // --only-pending: scanFolders를 다시 돌리지 않고 기존 work-list.json의 pending 항목만 재시도
+// --year=YYYY: 해당 연도의 pending 항목만 처리 (단계적 실행용)
 const fs = require('fs');
 const path = require('path');
 
@@ -9,9 +10,11 @@ const { scanFolders, loadConfig } = require('./scanFolders');
 
 function parseArgs() {
   const args = process.argv.slice(2);
+  const yearArg = args.find((a) => a.startsWith('--year='));
   return {
     dryRun: args.includes('--dry-run'),
     onlyPending: args.includes('--only-pending'),
+    year: yearArg ? yearArg.split('=')[1] : undefined,
   };
 }
 
@@ -32,7 +35,7 @@ function summarize(items) {
 }
 
 async function main() {
-  const { dryRun, onlyPending } = parseArgs();
+  const { dryRun, onlyPending, year } = parseArgs();
   const projectRoot = path.resolve(__dirname, '..');
   const workListPath = path.resolve(projectRoot, config.workListFile);
 
@@ -44,7 +47,7 @@ async function main() {
   }
 
   const items = JSON.parse(fs.readFileSync(workListPath, 'utf8'));
-  const pendingItems = items.filter((i) => i.status === 'pending');
+  const pendingItems = items.filter((i) => i.status === 'pending' && (!year || i.date.startsWith(year)));
 
   if (dryRun) {
     console.log(`--dry-run: 처리 대상 ${pendingItems.length}건`);
@@ -66,7 +69,7 @@ async function main() {
   const beforeCounts = summarize(items);
 
   const { main: runDownload } = require('./downloadByDate');
-  await runDownload();
+  await runDownload(year);
 
   const { main: runExtract } = require('./extractAndMove');
   await runExtract();
