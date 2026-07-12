@@ -1,0 +1,29 @@
+{
+  "login": {
+    "usernameInput": "input[name=\"username\"]",
+    "usernameNextButton": "[syno-id=\"account-panel-next-btn\"]",
+    "passwordInput": "[syno-id=\"password\"]",
+    "passwordSubmitButton": "[syno-id=\"password-panel-next-btn\"]",
+    "keepSignedInLabelText": "로그인 유지",
+    "notes": "2단계 폼(아이디 입력 후 다음, 비밀번호 입력 후 다음). 2FA 없이 자동 로그인 성공 확인됨."
+  },
+  "timeline": {
+    "navigateNote": "config.synologyPhotosRootUrl(.env의 PHOTO_URL)로 먼저 이동해 로그인/세션을 확인한 뒤, page.evaluate로 window.location.hash = '#/personal_space/timeline' 를 실행해 인앱 이동해야 한다. cloud.newpeoplech.com/?launchApp=...#/personal_space/timeline 형태의 URL로 직접 goto하면 'SYNO.Foto.Sharing.AppInstance' 외부 로그인 플로우로 리다이렉트되어 실패한다.",
+    "filterToggleButton": "[data-tooltip-content=\"필터 표시\"]",
+    "filterShowMoreYearsLink": "text=더 보기",
+    "filterTreeLabel": ".synofoto-filter-tree-text-label",
+    "filterTreeLabelNote": "연도('2010')/월('5월') 텍스트로 필터. 요소 텍스트로 찾은 뒤 .closest('.synofoto-form-checkbox').parentElement 안의 .synofoto-treebeard-toggle 을 클릭하면 하위(월) 트리가 펼쳐진다. 체크박스는 .closest('label.synofoto-form-checkbox-label') 클릭.",
+    "filterGranularityNote": "필터 트리는 연도>월 단위까지만 지원한다 (일 단위 없음). 같은 달에 서로 다른 날짜의 이벤트가 섞여 있으면 이 필터만으로는 날짜를 분리할 수 없다.",
+    "groupHeader": ".synofoto-item-timeline-header",
+    "groupHeaderDateText": ".synofoto-item-timeline-header-date",
+    "groupHeaderDateFormat": "YYYY-MM (월 단위, 일자 없음)",
+    "groupSelectAllCheckbox": ".synofoto-selectable-checkbox (그룹 헤더 내부, 마우스를 헤더 위에 올려야 렌더링됨)",
+    "photoItem": ".synofoto-item-timeline-item",
+    "photoItemCheckbox": ".synofoto-selectable-checkbox (아이템 내부, hover 필요)",
+    "selectionToolbarDownloadButton": "[data-tooltip-content=\"다운로드\"]",
+    "downloadFormatCompressedOption": "text=압축 JPEG",
+    "downloadFormatOriginalOption": "text=원본",
+    "downloadBehavior": "사진 1장 선택 시 원본 파일명 그대로 직접 다운로드(zip 아님). 2장 이상 선택 시 'download.zip'으로 압축되어 다운로드됨. 압축 JPEG 다운로드 파일명 규칙: 'IMG_0184.JPG_compressed.JPEG' 형태 (기존 로컬 폴더의 파일명과 동일 패턴).",
+    "photoInfoPanelNote": "사진을 더블클릭하면 라이트박스가 열리고, 우측 상단 정보(ⓘ) 아이콘을 클릭하면 '자세히' 패널에 정확한 촬영일(YYYY-MM-DD), 시간, 파일명, 경로가 표시된다. 같은 달에 여러 날짜가 섞여 있을 때 개별 사진의 정확한 날짜를 구분해야 한다면 이 패널을 사용해야 한다 (전용 CSS 선택자는 아직 특정하지 못했고 텍스트 매칭으로 접근함)."
+  }
+}

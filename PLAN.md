@@ -1,6 +1,6 @@
 # PLAN — Synology Photos → 로컬 폴더 자동 동기화
 
-마지막 업데이트: 2026-07-05
+마지막 업데이트: 2026-07-12
 
 ## 목표
 
@@ -10,7 +10,7 @@ Synology Photos 웹 UI(타임라인, 로그인 필요)에 날짜별로 올라간
 - Synology Photos는 공식 개인 라이브러리 REST API가 없으므로 **비공식 API를 추측 호출하지 않고**,
   Playwright로 실제 Chrome을 조작하는 UI 자동화 방식으로만 구현한다.
 - 다운로드 시 "압축 JPEG" / "원본" 중 **"압축 JPEG"** 를 선택한다.
-- 타임라인 URL: `https://cloud.newpeoplech.com/?launchApp=SYNO.Foto.AppInstance#/personal_space/timeline`
+- 타임라인 진입: `.env`의 `PHOTO_URL`로 로그인 후, 인앱에서 `#/personal_space/timeline`로 hash 이동 (직접 딥링크 URL로 이동하면 재로그인이 요구됨 — [docs/DOM_NOTES.md](docs/DOM_NOTES.md) 2번 참고)
 - 로그인 방식: 사용자 결정에 따라 `.env`(`PHOTO_URL`, `PHOTO_ID`, `PHOTO_PW`)의 자격 증명으로 **자동 로그인**한다.
   `.env`는 git에 커밋하지 않는다(`.gitignore`에 포함됨). 2FA 등으로 자동 로그인이 막히면 수동 로그인으로 폴백한다.
 - 자동 테스트(단위/E2E)는 아직 작성하지 않는다. 나중에 별도로 요청 시 진행한다.
@@ -43,20 +43,35 @@ newpeoplech-photo-batch\
 - [x] `scripts/scanFolders.js` 구현 — `연도\YYYYMMDD_행사명` 폴더를 재귀 스캔, 이미 파일이 있으면 `skipped`, 없으면 `pending`으로 `work-list.json` 생성
 - [x] `work-list.json` 1차 생성 확인 (아래 진행 현황 참고)
 
-## Phase 2 — 로그인 세션 확보 + DOM 조사 (다음 단계, 실제 브라우저 조작 필요 — 진행 전 확인 필요)
+## Phase 2 — 로그인 세션 확보 + DOM 조사 (완료, 2026-07-12)
 
-- [ ] `scripts/login.js` — `.env`의 `PHOTO_ID`/`PHOTO_PW`로 자동 로그인 시도 후 `launchPersistentContext`로 세션을 `.auth/`에 저장. 자동 로그인 실패(2FA 등) 시 수동 로그인 대기로 폴백
-- [ ] 실제 Synology Photos 타임라인 페이지의 DOM을 직접 열어 확인:
-  - 날짜 그룹 헤더 선택자
-  - 특정 날짜 전체 선택 체크박스/호버 UI 선택자
-  - 다운로드 버튼 선택자 및 "압축 JPEG" 옵션 선택 동작
-  - 특정 날짜로 바로 이동할 수 있는 URL 파라미터/검색 기능 유무
-- [ ] 조사 결과를 `docs/DOM_NOTES.md`에 기록
-- [ ] 실제 선택자를 `selectors.json`으로 분리
+- [x] `scripts/login.js` + `scripts/lib/synologyAuth.js` — `.env`의 `PHOTO_ID`/`PHOTO_PW`로 자동 로그인(2FA 없이 성공 확인) 후 `launchPersistentContext`로 세션을 `.auth/`에 저장. 자동 로그인 실패 시 수동 로그인 대기로 폴백
+- [x] 실제 Synology Photos 타임라인 페이지의 DOM을 직접 열어 확인 (로그인 폼, 타임라인 진입 방법, 필터 트리, 그룹/개별 선택 체크박스, 다운로드 메뉴 "원본"/"압축 JPEG", 다운로드 동작 방식)
+- [x] 조사 결과를 [docs/DOM_NOTES.md](docs/DOM_NOTES.md)에 기록
+- [x] 실제 선택자를 [selectors.json](selectors.json)으로 분리
+- [x] 실제 로그인 + 압축 JPEG 다운로드까지 1회 실측 검증 (2010-05-16, 11장 → `download.zip` 정상 다운로드)
 
-## Phase 3 — 다운로드 자동화 + 정리 + 통합 실행 (Phase 2 완료 후 진행)
+### ⚠️ Phase 2에서 발견한 중요 제약 (Phase 3 설계에 영향)
 
-- [ ] `scripts/downloadByDate.js` — `work-list.json`을 순회하며 날짜별 다운로드 (압축 JPEG), 실패/사진없음 시 `skipped`/`error`로 기록하고 계속 진행
+Synology Photos 타임라인의 날짜 그룹 헤더는 **일(day) 단위가 아니라 월(YYYY-MM) 단위**로만 묶인다.
+좌측 필터 패널도 연도 > 월까지만 좁힐 수 있고 일 단위 필터는 없다.
+
+`work-list.json` 기준으로 확인한 결과, **같은 연-월에 서로 다른 날짜의 폴더(이벤트)가 걸쳐 있는 경우가 68개월**로,
+전체 대상 연-월(약 110개) 중 과반을 넘는다 (예: 2016-05는 5/1, 5/7, 5/14, 5/22 총 4개 날짜가 한 달에 섞여 있음).
+즉 "월 필터 → 그룹 전체 선택 → 다운로드"만으로는 대다수 폴더를 안전하게 처리할 수 없고,
+많은 경우 같은 달 안에서 정확한 날짜로 사진을 다시 구분하는 로직이 필요하다.
+
+사진 낱장의 정확한 촬영일은 더블클릭 → 정보(ⓘ) 아이콘 → "자세히" 패널에서 `YYYY-MM-DD`로 확인 가능함을 검증했다
+(hover 툴팁에는 날짜가 표시되지 않아 이 방법은 쓸 수 없음, DOM_NOTES.md 6·7번 참고).
+
+## Phase 3 — 다운로드 자동화 + 정리 + 통합 실행 (설계 방향 확인 필요 — 아래 참고)
+
+Phase 2의 제약 때문에 원래 계획보다 다운로드 로직이 복잡해진다. 진행 전 사용자에게 아래 접근 방식을 확인받는다.
+
+- [ ] `scripts/downloadByDate.js` — `work-list.json`을 순회하며 날짜별 다운로드
+  - 해당 연-월에 `work-list.json` 상 날짜가 하나뿐이면: 월 필터 → 그룹 전체 선택 → 압축 JPEG 다운로드 (빠른 경로)
+  - 해당 연-월에 여러 날짜가 섞여 있으면: 월 필터 후 개별 사진을 열어 정확한 촬영일을 확인하고, 대상 날짜에 해당하는 사진만 선택해서 다운로드 (느리지만 정확한 경로)
+  - 사진이 하나도 없는 날짜는 `skipped`, 그래도 날짜를 확정할 수 없는 애매한 경우는 임의 추정하지 말고 `skipped` + 로그 후 사용자에게 알림
 - [ ] `scripts/extractAndMove.js` — `adm-zip`으로 압축 해제 후 `targetPath`로 이동, `status: done` 갱신
 - [ ] `scripts/run.js` — 통합 실행, `--dry-run`(대상만 출력) / `--only-pending`(재시도) 옵션
 - [ ] `sync-log.json` 누적 로그 + 실행 종료 후 콘솔 요약 출력
@@ -66,6 +81,7 @@ newpeoplech-photo-batch\
 
 - **행사가 여러 날짜에 걸치는 경우**: 발견되면 자동으로 날짜 범위를 추정하지 말고 `skipped` + 로그 기록 후 사용자에게 알린다.
 - **폴더명이 `YYYYMMDD_행사명` 형식이 아닌 경우**: `scanFolders.js`가 `status: error`로 기록한다 (현재 0건).
+- **같은 달에 여러 날짜의 이벤트가 섞여 있는 경우** (68개월, 위 Phase 2 제약 참고): 정확한 날짜 확인이 실패하면 임의로 추정하지 말고 `skipped` + 로그 후 사용자에게 알린다.
 - **`공동체 앨범.md`의 날짜 누락/오타 항목** (예: 2013년 "2013년 송구영신예배"는 날짜 없음, 2011년 "11월 생일자 축하"는 원본에 9자리 오타가 있었음): 실제 폴더는 이미 8자리로 정상 생성되어 있어 스캔에는 영향 없음. `공동체 앨범.md`를 다시 참고해 새 폴더를 만들 때만 주의.
 
 ## 진행 현황 (연도별) — work-list.json 기준, 2026-07-05

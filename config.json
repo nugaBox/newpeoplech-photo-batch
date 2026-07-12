@@ -1,5 +1,6 @@
 {
-  "synologyTimelineUrl": "https://cloud.newpeoplech.com/?launchApp=SYNO.Foto.AppInstance#/personal_space/timeline",
+  "timelineHashRoute": "#/personal_space/timeline",
+  "timelineHashRouteNote": "PHOTO_URL(.env)로 먼저 이동해 로그인 세션을 확인한 뒤 이 값을 window.location.hash에 대입해 인앱 이동해야 함. 직접 goto하면 로그인이 풀린다 (selectors.json 참고)",
   "downloadFormat": "compressed_jpeg",
   "rootFolder": ".",
   "tempDownloadDir": "./downloads",
