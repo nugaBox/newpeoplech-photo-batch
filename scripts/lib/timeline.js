@@ -107,7 +107,17 @@ async function getItemCenter(page, index) {
   }, index);
 }
 
+// 열려 있는 라이트박스가 있으면 닫는다. 이전 항목 처리 중 라이트박스를 연 채로 예외가 나면
+// 화면 전체를 덮은 채 남아서 이후 모든 항목의 클릭이 막히므로, 각 항목 시작 전에 항상 확인한다.
+async function ensureLightboxClosed(page) {
+  const isOpen = await page.evaluate(() => !!document.querySelector('.synofoto-lightbox-toolbar-left-button'));
+  if (!isOpen) return;
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(500);
+}
+
 // 첫 사진의 라이트박스를 열고 정보 패널을 켠 뒤 ArrowRight로 순회하며 각 사진의 정확한 촬영일(YYYY-MM-DD)을 읽는다.
+// 중간에 실패하더라도 라이트박스는 반드시 닫아서 다음 항목이 막히지 않게 한다.
 async function readExactDatesForAllItems(page, count) {
   if (count === 0) return [];
 
@@ -116,27 +126,29 @@ async function readExactDatesForAllItems(page, count) {
   await page.waitForSelector(SELECTORS.lightboxToolbarRightButtons, { timeout: 15000 });
   await page.waitForTimeout(400);
 
-  const dateLocator = page.locator(SELECTORS.lightboxDateSelector);
-  const infoAlreadyOpen = await dateLocator.count();
-  if (infoAlreadyOpen === 0) {
-    await page.locator(SELECTORS.lightboxToolbarRightButtons).nth(2).click();
-    await page.waitForSelector(SELECTORS.lightboxDateSelector, { timeout: 15000 });
-    await page.waitForTimeout(400);
-  }
-
-  const dates = [];
-  for (let i = 0; i < count; i++) {
-    const text = (await dateLocator.textContent({ timeout: 15000 })).trim();
-    dates.push(text);
-    if (i < count - 1) {
-      await page.keyboard.press('ArrowRight');
-      await page.waitForTimeout(600);
+  try {
+    const dateLocator = page.locator(SELECTORS.lightboxDateSelector);
+    const infoAlreadyOpen = await dateLocator.count();
+    if (infoAlreadyOpen === 0) {
+      await page.locator(SELECTORS.lightboxToolbarRightButtons).nth(2).click();
+      await page.waitForSelector(SELECTORS.lightboxDateSelector, { timeout: 15000 });
+      await page.waitForTimeout(400);
     }
-  }
 
-  await page.keyboard.press('Escape');
-  await page.waitForTimeout(500);
-  return dates;
+    const dates = [];
+    for (let i = 0; i < count; i++) {
+      const text = (await dateLocator.textContent({ timeout: 15000 })).trim();
+      dates.push(text);
+      if (i < count - 1) {
+        await page.keyboard.press('ArrowRight');
+        await page.waitForTimeout(600);
+      }
+    }
+    return dates;
+  } finally {
+    await page.keyboard.press('Escape').catch(() => {});
+    await page.waitForTimeout(500);
+  }
 }
 
 // dates[i] === targetDate 인 항목들의 체크박스를 선택한다. 선택된 개수를 반환한다.
@@ -175,4 +187,5 @@ module.exports = {
   readExactDatesForAllItems,
   selectItemsByDate,
   downloadSelectedCompressed,
+  ensureLightboxClosed,
 };

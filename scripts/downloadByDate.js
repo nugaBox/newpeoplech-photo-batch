@@ -14,6 +14,7 @@ const {
   readExactDatesForAllItems,
   selectItemsByDate,
   downloadSelectedCompressed,
+  ensureLightboxClosed,
 } = require('./lib/timeline');
 
 function sleep(ms) {
@@ -27,6 +28,7 @@ function sanitizeForFolderName(name) {
 async function processItem(page, item, tempDownloadDir) {
   const [year, month] = item.date.split('-');
 
+  await ensureLightboxClosed(page);
   await filterToYearMonth(page, year, month);
   const count = await scrollGridToLoadAll(page);
 
