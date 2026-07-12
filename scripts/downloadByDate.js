@@ -11,11 +11,16 @@ const {
   filterToYearMonth,
   scrollGridToLoadAll,
   getItemCount,
+  getVideoFlags,
   readExactDatesForAllItems,
   selectItemsByDate,
   downloadSelectedCompressed,
   ensureLightboxClosed,
 } = require('./lib/timeline');
+
+function isBrowserClosedError(err) {
+  return /Target page, context or browser has been closed|Target closed|Browser has been closed/.test(err.message);
+}
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -37,7 +42,13 @@ async function processItem(page, item, tempDownloadDir) {
   }
 
   const dates = await readExactDatesForAllItems(page, count);
-  const matched = await selectItemsByDate(page, dates, item.date);
+  const videoFlags = await getVideoFlags(page);
+  const videoCount = videoFlags.filter(Boolean).length;
+  const matched = await selectItemsByDate(page, dates, item.date, videoFlags);
+
+  if (videoCount > 0) {
+    console.log(`  (동영상 ${videoCount}개는 다운로드에서 제외)`);
+  }
 
   if (matched === 0) {
     return { status: 'skipped', reason: `해당 날짜(${item.date}) 사진을 이 달(${year}-${month}) 안에서 찾지 못함` };
@@ -68,19 +79,19 @@ async function main(yearFilter) {
     return;
   }
 
-  const context = await chromium.launchPersistentContext(authProfileDir, {
+  let context = await chromium.launchPersistentContext(authProfileDir, {
     headless: false,
     viewport: { width: 1440, height: 900 },
     acceptDownloads: true,
   });
-  const page = context.pages()[0] || (await context.newPage());
-
+  let page = context.pages()[0] || (await context.newPage());
   await loginIfNeeded(page);
   await goToTimeline(page);
 
   let done = 0;
+  const total = pendingItems.length;
   for (const item of pendingItems) {
-    console.log(`[${++done}/${pendingItems.length}] ${item.date} ${item.eventName} 처리 중...`);
+    console.log(`[${++done}/${total}] ${item.date} ${item.eventName} 처리 중...`);
     try {
       const result = await processItem(page, item, tempDownloadDir);
       Object.assign(item, result);
@@ -93,6 +104,21 @@ async function main(yearFilter) {
       item.status = 'error';
       item.reason = err.message;
       console.error(`  -> 에러: ${err.message}`);
+
+      // 브라우저/탭 자체가 죽은 경우(장시간 실행 중 크래시 등) 남은 항목이 전부 연쇄 실패하므로
+      // 새 브라우저를 띄워 재로그인하고 이어서 진행한다.
+      if (isBrowserClosedError(err)) {
+        console.log('  브라우저가 종료된 것으로 보여 새로 띄워 이어서 진행합니다...');
+        await context.close().catch(() => {});
+        context = await chromium.launchPersistentContext(authProfileDir, {
+          headless: false,
+          viewport: { width: 1440, height: 900 },
+          acceptDownloads: true,
+        });
+        page = context.pages()[0] || (await context.newPage());
+        await loginIfNeeded(page);
+        await goToTimeline(page);
+      }
     }
 
     fs.writeFileSync(workListPath, JSON.stringify(items, null, 2), 'utf8');

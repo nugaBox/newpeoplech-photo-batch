@@ -98,6 +98,15 @@ async function getItemCount(page) {
   return page.evaluate(() => document.querySelectorAll('.synofoto-item-timeline-item').length);
 }
 
+// 각 항목이 동영상인지 여부를 순서대로 반환한다 (동영상은 "압축 JPEG" 다운로드에서 제외해야 함).
+async function getVideoFlags(page) {
+  return page.evaluate(() =>
+    Array.from(document.querySelectorAll('.synofoto-item-timeline-item')).map(
+      (el) => !!el.querySelector('.synofoto-indicator-video')
+    )
+  );
+}
+
 async function getItemCenter(page, index) {
   return page.evaluate((idx) => {
     const el = document.querySelectorAll('.synofoto-item-timeline-item')[idx];
@@ -151,9 +160,12 @@ async function readExactDatesForAllItems(page, count) {
   }
 }
 
-// dates[i] === targetDate 인 항목들의 체크박스를 선택한다. 선택된 개수를 반환한다.
-async function selectItemsByDate(page, dates, targetDate) {
-  const indices = dates.map((d, i) => (d === targetDate ? i : -1)).filter((i) => i >= 0);
+// dates[i] === targetDate 이면서 동영상이 아닌 항목들의 체크박스를 선택한다. 선택된 개수를 반환한다.
+// (동영상은 "압축 JPEG"로 받아도 원본 그대로 딸려와 zip이 수 GB로 커지고 adm-zip이 처리하지 못해 제외한다.)
+async function selectItemsByDate(page, dates, targetDate, videoFlags = []) {
+  const indices = dates
+    .map((d, i) => (d === targetDate && !videoFlags[i] ? i : -1))
+    .filter((i) => i >= 0);
   for (const idx of indices) {
     const center = await getItemCenter(page, idx);
     if (!center) continue;
@@ -184,6 +196,7 @@ module.exports = {
   filterToYearMonth,
   scrollGridToLoadAll,
   getItemCount,
+  getVideoFlags,
   readExactDatesForAllItems,
   selectItemsByDate,
   downloadSelectedCompressed,
