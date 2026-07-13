@@ -11,7 +11,10 @@
     "scan": "node scripts/scanFolders.js",
     "login": "node scripts/login.js",
     "sync": "node scripts/run.js",
-    "sync:dry": "node scripts/run.js --dry-run"
+    "sync:dry": "node scripts/run.js --dry-run",
+    "upload": "node scripts/uploadToBoard.js",
+    "upload:dry": "node scripts/uploadToBoard.js --dry-run",
+    "report:upload": "node scripts/generateUploadReport.js"
   },
   "dependencies": {
     "adm-zip": "^0.5.16",
