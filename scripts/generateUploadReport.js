@@ -44,9 +44,14 @@ for (const e of empty) {
 const uploadedList = Object.values(log.uploaded).sort((a, b) =>
   `${a.date}${a.eventName}`.localeCompare(`${b.date}${b.eventName}`)
 );
+const errorCount = Object.keys(log.errors || {}).length;
+const totalPhotos = uploadedList.reduce((n, e) => n + e.photoCount, 0);
+const withPhotosCount = wl.length - empty.length;
+const excludedFilesCount = videoCount + notImageCount + invalidMagic;
 const byTime = uploadedList.slice().sort((a, b) => a.uploadedAt.localeCompare(b.uploadedAt));
 const first = byTime[0];
 const last = byTime[byTime.length - 1];
+const durationMinutes = Math.round((new Date(last.uploadedAt) - new Date(first.uploadedAt)) / 60000);
 const sortedSkipped = [...skippedByEvent.values()].sort((a, b) =>
   `${a.date}${a.eventName}`.localeCompare(`${b.date}${b.eventName}`)
 );
@@ -56,7 +61,8 @@ const push = (s = '') => lines.push(s);
 
 push('# 공동체 앨범 웹게시판 업로드 보고서');
 push();
-push('- **작성일**: 2026-07-13');
+push('- **작성일**: 2026-07-13 (최초), 이후 재실행 때마다 이 파일에 최신 수치로 덮어씀');
+push(`- **최근 갱신**: ${new Date().toISOString()}`);
 push('- **대상 게시판**: [공동체 앨범 (PHOTO)](https://www.newpeoplech.com/boardList.do?boardId=PHOTO&pageId=www37)');
 push('- **등록 URL**: `board.do?action=insert&pageId=www37&boardId=PHOTO`');
 push('- **관련 로그**: `upload-log.json` (재실행 시 이미 올린 행사 스킵용)');
@@ -67,14 +73,14 @@ push();
 push('| 항목 | 수량 |');
 push('|------|------|');
 push('| 연도 폴더 (2010~2024) | 15 |');
-push('| 총 행사 폴더 | 262 |');
-push('| 사진 있는 행사 (업로드 대상) | 227 |');
-push('| 빈 폴더 (업로드 안 함) | 35 |');
-push('| 게시글 등록 성공 | **227** |');
-push('| 업로드 실패 | **0** |');
-push('| 등록된 유효 사진 | **3,180장** |');
-push('| 제외 파일 (영상/비이미지) | 209 |');
-push('| 손상/깨진 이미지 | 0 |');
+push(`| 총 행사 폴더 | ${wl.length} |`);
+push(`| 사진 있는 행사 (업로드 대상) | ${withPhotosCount} |`);
+push(`| 빈 폴더 (업로드 안 함) | ${empty.length} |`);
+push(`| 게시글 등록 성공 | **${uploadedList.length}** |`);
+push(`| 업로드 실패 | **${errorCount}** |`);
+push(`| 등록된 유효 사진 | **${totalPhotos.toLocaleString()}장** |`);
+push(`| 제외 파일 (영상/비이미지) | ${excludedFilesCount} |`);
+push(`| 손상/깨진 이미지 | ${invalidMagic} |`);
 push();
 push('### 실행 시간');
 push();
@@ -82,7 +88,7 @@ push('| 구분 | 시각 (UTC) |');
 push('|------|------------|');
 push(`| 첫 업로드 | ${first.uploadedAt} (${first.date} ${first.eventName}) |`);
 push(`| 마지막 업로드 | ${last.uploadedAt} (${last.date} ${last.eventName}) |`);
-push('| 대략 소요 | 약 88분 |');
+push(`| 전체 기간 (여러 번에 걸쳐 실행됐다면 그 사이 간격 포함) | 약 ${durationMinutes}분 |`);
 push();
 push('### 등록 방식');
 push();
@@ -103,11 +109,11 @@ push('|------|-----------|---------|');
 for (const y of Object.keys(byYear).sort()) {
   push(`| ${y} | ${byYear[y].events} | ${byYear[y].photos} |`);
 }
-push('| **합계** | **227** | **3180** |');
+push(`| **합계** | **${uploadedList.length}** | **${totalPhotos}** |`);
 push();
 push('---');
 push();
-push('## 3. 업로드하지 않은 빈 폴더 (35개)');
+push(`## 3. 업로드하지 않은 빈 폴더 (${empty.length}개)`);
 push();
 push('로컬에 유효한 사진 파일이 없어 게시글을 만들지 않았다. 사진을 채운 뒤 `node scripts/uploadToBoard.js`로 이어서 올릴 수 있다 (이미 올린 행사는 `upload-log.json` 기준으로 스킵).');
 push();
@@ -128,7 +134,7 @@ for (const y of Object.keys(emptyByYear).sort()) {
 push();
 push('---');
 push();
-push('## 4. 제외된 파일 (209개)');
+push(`## 4. 제외된 파일 (${excludedFilesCount}개)`);
 push();
 push('| 사유 | 수량 | 설명 |');
 push('|------|------|------|');
@@ -149,7 +155,7 @@ for (const ev of sortedSkipped) {
 }
 push('---');
 push();
-push('## 5. 업로드 성공 행사 전체 목록 (227개)');
+push(`## 5. 업로드 성공 행사 전체 목록 (${uploadedList.length}개)`);
 push();
 push('| 행사일자 | 제목 | 사진 수 | 제외 파일 | 업로드 시각(UTC) |');
 push('|----------|------|---------|-----------|------------------|');
