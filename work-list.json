@@ -178,8 +178,8 @@
     "date": "2013-11-03",
     "eventName": "교회설립 기념 성례식",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2013\\20131103_교회설립 기념 성례식",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2013-11-10",
@@ -213,15 +213,15 @@
     "date": "2013-12-15",
     "eventName": "장학구제를 위한 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2013\\20131215_장학구제를 위한 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2013-12-29",
     "eventName": "연말시상식, 12월 생일자 축하",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2013\\20131229_연말시상식, 12월 생일자 축하",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2013-12-31",
@@ -311,36 +311,36 @@
     "date": "2014-12-25",
     "eventName": "성탄절 감사예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2014\\20141225_성탄절 감사예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2014-12-28",
     "eventName": "선교구제를 위한 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2014\\20141228_선교구제를 위한 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2014-12-28",
     "eventName": "연말시상식 및 12월 생일자 축하",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2014\\20141228_연말시상식 및 12월 생일자 축하",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2014-12-28",
     "eventName": "영유아 기도",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2014\\20141228_영유아 기도",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2014-12-28",
     "eventName": "주일낮예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2014\\20141228_주일낮예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2014-12-31",
@@ -444,15 +444,15 @@
     "date": "2015-05-10",
     "eventName": "어버이주일",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2015\\20150510_어버이주일",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2015-06-28",
     "eventName": "6월 생일자 축하",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2015\\20150628_6월 생일자 축하",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2015-06-28",
@@ -493,15 +493,15 @@
     "date": "2015-09-20",
     "eventName": "9월 생일자 축하",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2015\\20150920_9월 생일자 축하",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2015-09-20",
     "eventName": "여전도회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2015\\20150920_여전도회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2015-09-27",
@@ -584,8 +584,8 @@
     "date": "2016-02-21",
     "eventName": "남전도회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160221_남전도회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-02-26",
@@ -598,8 +598,8 @@
     "date": "2016-03-05",
     "eventName": "청년회 교육",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160305_청년회 교육",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-03-20",
@@ -633,43 +633,43 @@
     "date": "2016-05-01",
     "eventName": "어린이주일 및 유아세례식",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160501_어린이주일 및 유아세례식",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-05-07",
     "eventName": "문화공간 공사",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160507_문화공간 공사",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-05-14",
     "eventName": "청년회 교육",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160514_청년회 교육",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-05-22",
     "eventName": "성령강림절(성찬식)",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160522_성령강림절(성찬식)",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-05-22",
     "eventName": "전교우 찬양대회",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160522_전교우 찬양대회",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-05-22",
     "eventName": "청년회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160522_청년회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-06-04",
@@ -717,8 +717,8 @@
     "date": "2016-08-11",
     "eventName": "청년회 수련회 참가",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20160811_청년회 수련회 참가",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-08-15",
@@ -815,15 +815,15 @@
     "date": "2016-12-04",
     "eventName": "영유아 기도",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20161204_영유아 기도",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-12-17",
     "eventName": "여전도회 교회 김장",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2016\\20161217_여전도회 교회 김장",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2016-12-25",
@@ -913,8 +913,8 @@
     "date": "2017-05-03",
     "eventName": "전교인 야유회",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2017\\20170503_전교인 야유회",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2017-05-15",
@@ -976,8 +976,8 @@
     "date": "2017-08-13",
     "eventName": "중직자 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2017\\20170813_중직자 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2017-08-15",
@@ -1207,8 +1207,8 @@
     "date": "2018-09-16",
     "eventName": "남전도회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2018\\20180916_남전도회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2018-09-30",
@@ -1256,8 +1256,8 @@
     "date": "2018-12-25",
     "eventName": "성탄절 축하예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2018\\20181225_성탄절 축하예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2018-12-30",
@@ -1410,22 +1410,22 @@
     "date": "2019-12-25",
     "eventName": "성탄절 축하예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2019\\20191225_성탄절 축하예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2019-12-29",
     "eventName": "12월 생일자 축하 및 연말시상식",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2019\\20191229_12월 생일자 축하 및 연말시상식",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2019-12-29",
     "eventName": "청년회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2019\\20191229_청년회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2019-12-31",
@@ -1452,8 +1452,8 @@
     "date": "2020-02-16",
     "eventName": "남전도회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2020\\20200216_남전도회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2020-02-23",
@@ -1550,15 +1550,15 @@
     "date": "2021-11-14",
     "eventName": "교회설립 기념 성찬식",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2021\\20211114_교회설립 기념 성찬식",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2021-11-28",
     "eventName": "11월 생일자 축하",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2021\\20211128_11월 생일자 축하",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2021-11-29",
@@ -1620,8 +1620,8 @@
     "date": "2022-10-02",
     "eventName": "제직회(재정보고)",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2022\\20221002_제직회(재정보고)",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2022-12-11",
@@ -1676,8 +1676,8 @@
     "date": "2023-03-19",
     "eventName": "남전도회 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2023\\20230319_남전도회 헌신예배",
-    "status": "pending",
-    "reason": null
+    "status": "skipped",
+    "reason": "already_has_files"
   },
   {
     "date": "2023-03-26",
@@ -1830,6 +1830,55 @@
     "date": "2024-05-19",
     "eventName": "중직자 헌신예배",
     "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2024\\20240519_중직자 헌신예배",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-05-10",
+    "eventName": "5월 가정의 달 예배",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260510_5월 가정의 달 예배",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-06-28",
+    "eventName": "6월 생일자 축하",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260628_6월 생일자 축하",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-07-05",
+    "eventName": "24분기 재정보고 (제직회)",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260705_24분기 재정보고 (제직회)",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-07-19",
+    "eventName": "제직회 헌신예배",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260719_제직회 헌신예배",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-07-26",
+    "eventName": "7월 생일자 축하",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260726_7월 생일자 축하",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-08-30",
+    "eventName": "8월 생일자 축하",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260830_8월 생일자 축하",
+    "status": "skipped",
+    "reason": "already_has_files"
+  },
+  {
+    "date": "2026-09-20",
+    "eventName": "남전도회 헌신예배",
+    "targetPath": "C:\\Users\\churchCom\\Documents\\Develop\\newpeoplech-photo-batch\\2026\\20260920_남전도회 헌신예배",
     "status": "skipped",
     "reason": "already_has_files"
   }

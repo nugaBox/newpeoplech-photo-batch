@@ -1110,9 +1110,11 @@
     "2018-12-30_12월 생일자 축하 및 연말시상식": {
       "date": "2018-12-30",
       "eventName": "12월 생일자 축하 및 연말시상식",
-      "photoCount": 19,
+      "photoCount": 9,
       "skippedFiles": [],
-      "uploadedAt": "2026-07-13T01:01:26.191Z"
+      "uploadedAt": "2026-07-13T01:01:26.191Z",
+      "seq": "4849896",
+      "syncedAt": "2026-11-01T05:49:18.767Z"
     },
     "2018-12-31_2018년 송구영신예배": {
       "date": "2018-12-31",
@@ -1283,9 +1285,11 @@
     "2020-02-23_2월 생일자 축하": {
       "date": "2020-02-23",
       "eventName": "2월 생일자 축하",
-      "photoCount": 16,
+      "photoCount": 5,
       "skippedFiles": [],
-      "uploadedAt": "2026-07-13T01:10:57.916Z"
+      "uploadedAt": "2026-07-13T01:10:57.916Z",
+      "seq": "7799008",
+      "syncedAt": "2026-11-01T05:49:18.826Z"
     },
     "2020-04-11_부활절 감사예배": {
       "date": "2020-04-11",
@@ -1479,56 +1483,8 @@
     "2021-11-29_광주시찰 교역자회": {
       "date": "2021-11-29",
       "eventName": "광주시찰 교역자회",
-      "photoCount": 23,
+      "photoCount": 7,
       "skippedFiles": [
-        {
-          "file": "IMG_6573.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6574.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6575.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6576.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6577.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6578.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6579.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6580.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6581.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6582.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6583.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_6584.MOV",
-          "reason": "video"
-        },
         {
           "file": "IMG_6729.MOV",
           "reason": "video"
@@ -1550,7 +1506,9 @@
           "reason": "video"
         }
       ],
-      "uploadedAt": "2026-07-13T01:16:10.520Z"
+      "uploadedAt": "2026-07-13T01:16:10.520Z",
+      "seq": "7340239",
+      "syncedAt": "2026-11-01T05:49:18.856Z"
     },
     "2021-12-11_설립 20주년 축하 임직식": {
       "date": "2021-12-11",
@@ -1776,14 +1734,20 @@
     "2022-09-25_아이들과 함께": {
       "date": "2022-09-25",
       "eventName": "아이들과 함께",
-      "photoCount": 4,
+      "photoCount": 7,
       "skippedFiles": [
         {
           "file": "IMG_0100.MOV",
           "reason": "video"
+        },
+        {
+          "file": "IMG_0319.MOV",
+          "reason": "video"
         }
       ],
-      "uploadedAt": "2026-07-13T01:18:58.461Z"
+      "uploadedAt": "2026-07-13T01:18:58.461Z",
+      "seq": "393402",
+      "syncedAt": "2026-11-01T05:49:18.871Z"
     },
     "2022-12-11_중직자회": {
       "date": "2022-12-11",
@@ -1903,12 +1867,8 @@
     "2023-02-26_아이들과 함께": {
       "date": "2023-02-26",
       "eventName": "아이들과 함께",
-      "photoCount": 7,
+      "photoCount": 6,
       "skippedFiles": [
-        {
-          "file": "IMG_2928.MOV",
-          "reason": "video"
-        },
         {
           "file": "IMG_2966.MOV",
           "reason": "video"
@@ -1934,39 +1894,18 @@
           "reason": "video"
         }
       ],
-      "uploadedAt": "2026-07-13T01:21:10.969Z"
+      "uploadedAt": "2026-07-13T01:21:10.969Z",
+      "seq": "5243129",
+      "syncedAt": "2026-11-01T05:49:18.881Z"
     },
     "2023-03-26_찬양팀 인도": {
       "date": "2023-03-26",
       "eventName": "찬양팀 인도",
-      "photoCount": 8,
-      "skippedFiles": [
-        {
-          "file": "IMG_3014.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_3017.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_3051.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_3052.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_3053.MOV",
-          "reason": "video"
-        },
-        {
-          "file": "IMG_3054.MOV",
-          "reason": "video"
-        }
-      ],
-      "uploadedAt": "2026-07-13T01:21:31.297Z"
+      "photoCount": 2,
+      "skippedFiles": [],
+      "uploadedAt": "2026-07-13T01:21:31.297Z",
+      "seq": "1769639",
+      "syncedAt": "2026-11-01T05:49:18.882Z"
     },
     "2023-04-02_성찬식(입교)": {
       "date": "2023-04-02",
@@ -2619,6 +2558,224 @@
       "photoCount": 2,
       "skippedFiles": [],
       "uploadedAt": "2026-07-19T05:48:26.368Z"
+    },
+    "2026-05-10_5월 가정의 달 예배": {
+      "date": "2026-05-10",
+      "eventName": "5월 가정의 달 예배",
+      "photoCount": 3,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:24:28.658Z"
+    },
+    "2026-06-28_6월 생일자 축하": {
+      "date": "2026-06-28",
+      "eventName": "6월 생일자 축하",
+      "photoCount": 8,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:24:52.675Z"
+    },
+    "2026-07-05_24분기 재정보고 (제직회)": {
+      "date": "2026-07-05",
+      "eventName": "24분기 재정보고 (제직회)",
+      "photoCount": 4,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:25:10.096Z"
+    },
+    "2026-07-19_제직회 헌신예배": {
+      "date": "2026-07-19",
+      "eventName": "제직회 헌신예배",
+      "photoCount": 5,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:25:28.230Z"
+    },
+    "2026-07-26_7월 생일자 축하": {
+      "date": "2026-07-26",
+      "eventName": "7월 생일자 축하",
+      "photoCount": 9,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:25:50.576Z"
+    },
+    "2026-08-30_8월 생일자 축하": {
+      "date": "2026-08-30",
+      "eventName": "8월 생일자 축하",
+      "photoCount": 3,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:26:05.401Z"
+    },
+    "2026-09-20_남전도회 헌신예배": {
+      "date": "2026-09-20",
+      "eventName": "남전도회 헌신예배",
+      "photoCount": 5,
+      "skippedFiles": [],
+      "uploadedAt": "2026-09-20T05:26:21.723Z"
+    },
+    "2017-05-03_전교인 야유회": {
+      "date": "2017-05-03",
+      "eventName": "전교인 야유회",
+      "photoCount": 19,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:29:30.486Z"
+    },
+    "2017-08-13_중직자 헌신예배": {
+      "date": "2017-08-13",
+      "eventName": "중직자 헌신예배",
+      "photoCount": 8,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:30:38.325Z"
+    },
+    "2018-09-16_남전도회 헌신예배": {
+      "date": "2018-09-16",
+      "eventName": "남전도회 헌신예배",
+      "photoCount": 7,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:30:58.227Z"
+    },
+    "2018-12-25_성탄절 축하예배": {
+      "date": "2018-12-25",
+      "eventName": "성탄절 축하예배",
+      "photoCount": 10,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:31:17.913Z"
+    },
+    "2019-12-25_성탄절 축하예배": {
+      "date": "2019-12-25",
+      "eventName": "성탄절 축하예배",
+      "photoCount": 2,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:31:32.943Z"
+    },
+    "2019-12-29_12월 생일자 축하 및 연말시상식": {
+      "date": "2019-12-29",
+      "eventName": "12월 생일자 축하 및 연말시상식",
+      "photoCount": 6,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:31:50.368Z"
+    },
+    "2020-02-16_남전도회 헌신예배": {
+      "date": "2020-02-16",
+      "eventName": "남전도회 헌신예배",
+      "photoCount": 10,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:34:18.684Z"
+    },
+    "2021-11-14_교회설립 기념 성찬식": {
+      "date": "2021-11-14",
+      "eventName": "교회설립 기념 성찬식",
+      "photoCount": 11,
+      "skippedFiles": [
+        {
+          "file": "IMG_6573.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6574.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6575.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6576.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6577.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6578.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6579.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6580.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6581.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6582.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6583.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_6584.MOV",
+          "reason": "video"
+        }
+      ],
+      "uploadedAt": "2026-11-01T05:34:39.936Z"
+    },
+    "2021-11-28_11월 생일자 축하": {
+      "date": "2021-11-28",
+      "eventName": "11월 생일자 축하",
+      "photoCount": 5,
+      "skippedFiles": [],
+      "uploadedAt": "2026-11-01T05:34:57.540Z"
+    },
+    "2022-10-02_제직회(재정보고)": {
+      "date": "2022-10-02",
+      "eventName": "제직회(재정보고)",
+      "photoCount": 4,
+      "skippedFiles": [
+        {
+          "file": "IMG_0188.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_0189.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_0190.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_0191.MOV",
+          "reason": "video"
+        }
+      ],
+      "uploadedAt": "2026-11-01T05:35:14.045Z"
+    },
+    "2023-03-19_남전도회 헌신예배": {
+      "date": "2023-03-19",
+      "eventName": "남전도회 헌신예배",
+      "photoCount": 4,
+      "skippedFiles": [
+        {
+          "file": "IMG_3051.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_3052.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_3053.MOV",
+          "reason": "video"
+        },
+        {
+          "file": "IMG_3054.MOV",
+          "reason": "video"
+        }
+      ],
+      "uploadedAt": "2026-11-01T05:35:31.132Z"
+    },
+    "2019-12-29_청년회 헌신예배": {
+      "date": "2019-12-29",
+      "eventName": "청년회 헌신예배",
+      "uploadedAt": "2026-11-01T05:49:18.812Z",
+      "photoCount": 11,
+      "skippedFiles": [],
+      "seq": "3080519",
+      "syncedAt": "2026-11-01T05:49:18.812Z"
     }
   },
   "skipped": {},

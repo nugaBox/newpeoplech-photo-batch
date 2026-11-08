@@ -9,16 +9,21 @@
   },
   "scripts": {
     "scan": "node scripts/scanFolders.js",
+    "import": "node scripts/importArchive.js",
     "login": "node scripts/login.js",
     "sync": "node scripts/run.js",
     "sync:dry": "node scripts/run.js --dry-run",
     "upload": "node scripts/uploadToBoard.js",
     "upload:dry": "node scripts/uploadToBoard.js --dry-run",
-    "report:upload": "node scripts/generateUploadReport.js"
+    "report:upload": "node scripts/generateUploadReport.js",
+    "upload:api": "node scripts/uploadPhotoLibraryApi.js",
+    "upload:api:dry": "node scripts/uploadPhotoLibraryApi.js --dry-run"
   },
   "dependencies": {
     "adm-zip": "^0.5.16",
     "dotenv": "^16.4.5",
-    "playwright": "^1.48.0"
+    "heic-convert": "^2.1.0",
+    "playwright": "^1.48.0",
+    "sharp": "^0.33.5"
   }
 }
